@@ -1,1 +1,0 @@
-{"landingPage":"/","login":false,"preferredVersions":{"php":"8.2","wp":"latest"},"steps":[{"step":"importWordPressFiles","wordPressFilesZip":{"resource":"url","url":"https://cordo-sites.github.io/lev-hayahadut/shop-site-2.zip"}},{"step":"writeFile","path":"/wordpress/wp-content/mu-plugins/lev-preview.php","data":"<?php\nadd_filter( 'show_admin_bar', '__return_false' );\n"}]}
