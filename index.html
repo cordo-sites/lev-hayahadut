@@ -1,1 +1,29 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex, nofollow"><title>לב היהדות</title><meta http-equiv="refresh" content="0;url=pages/home.html"></head><body style="font-family:Heebo,Arial,sans-serif;text-align:center;margin-top:30vh;background:#f5efe4"><a href="pages/home.html">כניסה לחנות</a><script>location.replace("pages/home.html")</script></body></html>
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>לב היהדות</title>
+<style>
+  html,body{margin:0;height:100%;background:#f5efe4;font-family:Heebo,Arial,sans-serif}
+  #site{position:fixed;inset:0;width:100%;height:100%;border:0}
+  #wait{position:fixed;inset:0;display:grid;place-items:center;text-align:center;color:#2a2318;background:#f5efe4;z-index:2;transition:opacity .4s}
+  #wait b{display:block;font-size:1.6rem;margin-bottom:8px;color:#9b7b35}
+  #wait span{font-size:.95rem;color:#6b6152}
+  .bar{width:180px;height:3px;background:#e7dcc7;margin:18px auto 0;overflow:hidden}
+  .bar i{display:block;width:40%;height:100%;background:#c8a45a;animation:go 1.4s infinite ease-in-out}
+  @keyframes go{from{transform:translateX(160%)}to{transform:translateX(-260%)}}
+</style>
+</head>
+<body>
+<!-- the real WordPress shop (version 2), running inside the visitor's own browser: no server, nothing to keep on -->
+<div id="wait"><div><b>לב היהדות</b><span>החנות נטענת… זה לוקח כחצי דקה בפעם הראשונה</span><div class="bar"><i></i></div></div></div>
+<iframe id="site" title="לב היהדות" src="https://playground.wordpress.net/?mode=seamless&blueprint-url=https://cordo-sites.github.io/lev-hayahadut/blueprint.json"></iframe>
+<script>
+  // hide the loading screen once the shop has drawn (the frame reports loads; give the setup time to finish)
+  var n = 0, f = document.getElementById('site');
+  f.addEventListener('load', function () { n++; setTimeout(function () { var w = document.getElementById('wait'); w.style.opacity = 0; setTimeout(function () { w.remove(); }, 500); }, 25000); });
+</script>
+</body>
+</html>
