@@ -5,11 +5,25 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>לב היהדות</title>
-<meta http-equiv="refresh" content="0;url=https://playground.wordpress.net/?mode=seamless&amp;blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-3.json">
 </head>
 <body style="font-family:Heebo,Arial,sans-serif;text-align:center;margin-top:35vh;background:#f5efe4;color:#2a2318">
 <p>פותח את החנות…</p>
-<p><a href="https://playground.wordpress.net/?mode=seamless&amp;blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-3.json">לחצו כאן אם לא נפתח</a></p>
-<script>location.replace("https://playground.wordpress.net/?mode=seamless&blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-3.json")</script>
+<script>
+// 1. the real shop on Amir's PC (instant) when it is running — its address is kept in live.json, updated on every start
+// 2. otherwise the same shop running in the browser from a ready-made copy (~15 s)
+(function () {
+  var FALLBACK = 'https://playground.wordpress.net/?mode=seamless&blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-3.json';
+  var done = false; function go(u) { if (!done) { done = true; location.replace(u); } }
+  setTimeout(function () { go(FALLBACK); }, 4000);
+  fetch('live.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) {
+    if (!j.url) return go(FALLBACK);
+    var img = new Image();
+    img.onload = function () { go(j.url + '/'); };
+    img.onerror = function () { go(FALLBACK); };
+    img.src = j.url + '/wp-content/themes/lev-hayahadut/assets/icons/logo.svg?t=' + Date.now();
+  }).catch(function () { go(FALLBACK); });
+})();
+</script>
+<noscript><a href="https://playground.wordpress.net/?mode=seamless&amp;blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-3.json">כניסה לחנות</a></noscript>
 </body>
 </html>
