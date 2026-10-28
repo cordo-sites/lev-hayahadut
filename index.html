@@ -12,7 +12,7 @@
 // 1. the real shop on Amir's PC (instant) when it is running — its address is kept in live.json, updated on every start
 // 2. otherwise the same shop running in the browser from a ready-made copy (~15 s)
 (function () {
-  var FALLBACK = 'https://playground.wordpress.net/?mode=seamless&blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-3.json';
+  var FALLBACK = 'https://playground.wordpress.net/?mode=seamless&blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-4.json';
   var done = false; function go(u) { if (!done) { done = true; location.replace(u); } }
   setTimeout(function () { go(FALLBACK); }, 4000);
   fetch('live.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) {
@@ -24,6 +24,6 @@
   }).catch(function () { go(FALLBACK); });
 })();
 </script>
-<noscript><a href="https://playground.wordpress.net/?mode=seamless&amp;blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-3.json">כניסה לחנות</a></noscript>
+<noscript><a href="https://playground.wordpress.net/?mode=seamless&amp;blueprint-url=https://cordo-sites.github.io/lev-hayahadut/shop-setup-4.json">כניסה לחנות</a></noscript>
 </body>
 </html>
